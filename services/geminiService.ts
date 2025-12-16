@@ -4,7 +4,8 @@ import { SYSTEM_INSTRUCTION } from '../constants';
 // Initialize the API client
 // Note: In a real production app, you should proxy this through a backend to hide the key.
 // For this portfolio demo running client-side, we assume the env var is available.
-const apiKey = process.env.API_KEY || ''; // Fallback empty string if not defined to avoid runtime crash on load, though will fail on call
+// We add a safety check for 'process' to prevent crashes in browser environments that don't polyfill it.
+const apiKey = (typeof process !== 'undefined' && process.env) ? (process.env.API_KEY || '') : ''; 
 const ai = new GoogleGenAI({ apiKey });
 
 export const sendMessageToGemini = async (message: string): Promise<string> => {

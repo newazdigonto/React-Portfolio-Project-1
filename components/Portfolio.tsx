@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PROJECTS } from '../constants';
-import { ExternalLink, ZoomIn } from 'lucide-react';
+import { ExternalLink, ZoomIn, ArrowRight } from 'lucide-react';
 
 const Portfolio: React.FC = () => {
   const [filter, setFilter] = useState('All');
@@ -82,8 +82,5 @@ const Portfolio: React.FC = () => {
     </section>
   );
 };
-
-import { ArrowRight } from 'lucide-react'; // Import locally if needed, but App.tsx handles global imports usually. 
-// Adding local import to be safe since App.tsx imports are not global.
 
 export default Portfolio;
